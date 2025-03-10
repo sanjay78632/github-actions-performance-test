@@ -1,0 +1,19 @@
+name: Performance Test
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set execute permission
+        run: chmod +x benchmark.sh
+
+      - name: Run benchmark
+        run: ./benchmark.sh
